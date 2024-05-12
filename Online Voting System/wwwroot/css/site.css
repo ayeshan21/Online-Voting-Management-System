@@ -1,0 +1,35 @@
+body {
+    text-align: center;
+    font-size: 15px;
+}
+
+main {
+    padding: 20px 0px;
+    background-color: antiquewhite;
+}
+
+header {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: 0;
+    padding: 5px 0px;
+}
+
+input {
+    padding: 10px;
+    border-radius: 5px;
+    width: 300px;
+}
+
+#drop-box {
+    padding: 10px;
+    border-radius: 5px;
+    width: 10%;
+}
+
+#common-btn {
+    width: 70px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgb(75, 75, 204);
+    color: white;
+}

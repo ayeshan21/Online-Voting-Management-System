@@ -1,0 +1,60 @@
+﻿@model Online_Voting_System.Models.User
+@{
+    ViewData["Title"] = "Register";
+}
+<header>
+    <div id="header-div">
+        <h1>Online Voting System</h1>
+        <hr>
+    </div>
+</header>
+<main>
+    <h2>Registration</h2>
+    <form method="post" asp-controller="User" asp-action="Register">
+        <input type="text" asp-for="Name" placeholder="Enter name">
+        <span asp-validation-for="Name"></span>
+        <br />
+        <input type="number" asp-for="Mobile" placeholder="Enter mobile no">
+        <span asp-validation-for="Mobile"></span>
+        
+        <br />
+        <input type="number" asp-for="n_id" placeholder="Enter NID no" id="NID_num">
+        <span asp-validation-for="n_id"></span>
+        
+        <br />
+        <input type="password" asp-for="Password" placeholder="Enter password">
+        <span asp-validation-for="Password"></span>
+
+        <br />
+        <input type="password" asp-for="Confirm_password" placeholder="Confirm password">
+        <span asp-validation-for="Confirm_password"></span>
+
+        <br />
+        <input type="text" asp-for="Address" placeholder="Address" id="address">
+        <span asp-validation-for="Address"></span>
+
+        <br />
+        <input type="text" asp-for="PhotoURL" placeholder="Photo URL" id="photoUrl" />
+        
+        <br />
+        <input type="text" asp-for="Sign_photoURL" placeholder="Sign_Photo URL" id="signphotoUrl" />
+
+        <br />
+        <center>
+            <div id="role-select">
+                <b>Select your role:</b> 
+                <select name="role" asp-for="Role">
+                    <option value="Voter">Voter</option>
+                    <option value="Group">Group</option>
+                </select>
+            </div>
+            <span asp-validation-for="Role"></span>
+        </center> <br><br>
+        <button id="common-btn">Register</button><br><br>
+        <center>
+            <div id="text-block">
+                <strong>Already user? <a asp-controller="User" asp-action="Login">Login here</a></strong>
+            </div>
+        </center>
+    </form>
+</main>

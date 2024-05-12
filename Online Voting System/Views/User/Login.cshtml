@@ -1,0 +1,35 @@
+﻿@model Online_Voting_System.Models.User
+@{
+    ViewData["Title"] = "Login";
+}
+<header>
+    <div id="header-div">
+        <h1>Online Voting System</h1>
+        <hr>
+    </div>
+</header>
+<main>
+    <div id="body-div">
+        @if (ViewData["ValidateMessage"] != null)
+        {
+            <div>@ViewData["ValidateMessage"]</div>
+        }
+        @if (ViewData["Success"] != null)
+        {
+            <div>@ViewData["Success"]</div>
+        }
+        <form method="post" asp-controller="User" asp-action="Login">
+            <h2>Login</h2>
+
+            <input type="number" name="mobile" asp-for="Mobile" placeholder="Enter mobile"><br><br>
+
+            <input type="password" name="password" asp-for="Password" placeholder="Enter password"><br><br>
+            <select name="role" asp-for="Role" id="drop-box">
+                <option value="Voter">Voter</option>
+                <option value="Group">Group</option>
+            </select><br><br>
+            <button id="common-btn">Login</button><br><br>
+            New user? <a asp-controller="User" asp-action="Register">Register Here</a>
+        </form>
+    </div>
+</main>

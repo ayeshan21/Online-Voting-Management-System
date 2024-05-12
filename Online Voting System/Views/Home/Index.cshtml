@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Home Page-login";
+}
+
+<div class="d-flex justify-content-between gap-4">
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <img class="img-fluid" src="@ViewBag.User.PhotoURL" alt="Alternate Text" />
+                <div class="text-start">
+                    <p>Name: <span class="fw-bold">@ViewBag.User.Name</span></p>
+                    <p>Address: <span class="fw-bold">@ViewBag.User.Address</span></p>
+                    <p>Mobile: <span class="fw-bold">@ViewBag.User.Mobile</span></p>
+                    <p>Voted: 
+                        @if(ViewBag.User.HasVoted)
+                        {
+                            <span class="fw-bold text-success">Voted</span>
+                        }
+                        else
+                        {
+                            <span class="fw-bold text-danger">Not Voted Yet</span>
+                        }
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-8 d-flex flex-column gap-4">
+       @foreach (var group in ViewBag.Groups)
+        {
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="text-start">
+                            <p>Name: <span class="fw-bold">@group.Name</span></p>
+                            <p>Votes: <span class="fw-bold">@group.Votes</span></p>
+                            @if(ViewBag.User.HasVoted)
+                            {
+                                <button class="btn btn-primary disabled">Voted</button>
+                            }
+                            else
+                            {
+                                <a class="btn btn-primary" asp-controller="Home" asp-action="Vote" asp-route-n_id="@group.n_id">
+                                    Vote
+                                </a>
+                            }
+                        </div>
+                        <div style="width:100px">
+                            <img class="img-thumbnail" src="@group.Sign_photoURL" alt="Alternate Text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
